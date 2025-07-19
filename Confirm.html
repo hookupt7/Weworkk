@@ -37,7 +37,21 @@
             <div style="background-color: #f9f9f9; padding: 30px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
                 <p style="margin-bottom: 25px; text-align: center;">Please fill out this form to confirm your delivery details. A representative will contact you shortly after submission.</p>
                 
-                <form id="confirmForm" action="success.html" method="GET" style="max-width: 600px; margin: 0 auto;">
+                <!-- Updated Netlify Form -->
+                <form 
+                    name="delivery-confirmation" 
+                    method="POST" 
+                    netlify 
+                    netlify-honeypot="bot-field"
+                    action="/success.html"
+                    style="max-width: 600px; margin: 0 auto;"
+                >
+                    <!-- Netlify Form Identification -->
+                    <input type="hidden" name="form-name" value="delivery-confirmation">
+                    <p hidden>
+                        <label>Don't fill this out: <input name="bot-field"></label>
+                    </p>
+                    
                     <div style="margin-bottom: 20px;">
                         <label for="fullName" style="display: block; margin-bottom: 8px; font-weight: bold;">Full Name</label>
                         <input type="text" id="fullName" name="fullName" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
